@@ -1,0 +1,74 @@
+Style fica dentro do Head
+Tudo que vc precisar que apareça é dentro do body
+Tudo que for tag, pense como se fosse o esqueleto de um corpo
+Tudo que estiver dentro do style, pense como pele, maquiagem, roupa
+Tudo que for funcional, oq um botão vai fazer, ou outras coisas, dentro do script
+
+
+
+
+
+
+=========Style==================== Dentro da tag style
+<style>
+ audio {
+      display: none;
+    }
+
+    .play-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 9999;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ff69b4, 0 0 20px #ff1493;
+    }
+    
+    .hidden{
+    	display: none;
+    }
+</style>
+========================================
+
+
+==============HTML====================== Onde vc quiser posicionar o botão dentro do body
+
+
+<audio id="bgmusic" loop>
+    <source src="public/music/wefellinloveinoctober.mp3" type="audio/mp3">
+    Seu navegador não suporta áudio.
+  </audio>
+  <button class="play-button play" onclick="togglePlay('play')">
+    <i class="fa-solid fa-play"></i> Tocar Música
+  </button>
+  <button class="play-button pause hidden" onclick="togglePlay('pause')">
+    <i class="fa-solid fa-pause"></i> Parar Música
+  </button>
+
+=========================================
+
+
+==============script==================== Dentro do Body antes de fechar ele
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js" integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    const body = document.body;
+    
+    function togglePlay(type){
+    	if(type == 'play')
+    		document.getElementById('bgmusic').play();
+    	
+    	if(type == 'pause')
+    		document.getElementById('bgmusic').pause();
+    		
+	      document.querySelector('.play').classList.toggle("hidden");
+	      document.querySelector('.pause').classList.toggle("hidden");
+    }
+  </script> 
+
+  ================================
